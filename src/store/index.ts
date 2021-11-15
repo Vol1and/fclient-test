@@ -38,7 +38,7 @@ export default new Vuex.Store<MainState>({
                 for (const [key, value] of filterValues) {
                     if ('isValid' === key && p.isValid !== value) {
                         flag = false;
-                    } else if (!(p as IQuestionAnswer)[key]?.includes(value)) flag = false;
+                    } else if ('isValid' !== key && !(p as IQuestionAnswer)[key]?.includes(value)) flag = false;
                 }
                 if (flag) acc.push(p);
 
