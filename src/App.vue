@@ -1,12 +1,36 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="nav" style="display: flex; justify-content: center">
+      <q-btn
+          flat
+          :style="{margin: '0 20px', color: $route.name === 'AnswerList' ? 'blue': 'black'}"
+          :to="{name: 'AnswerList'}"
+      >
+        Таблица ответов
+      </q-btn>
+      <q-btn
+          flat
+          :style="{margin: '0 20px', color: $route.name === 'ChartList'  ? 'blue': 'black'}"
+          :to="{name: 'ChartList'}"
+      >
+        Список графиков
+      </q-btn>
     </div>
     <router-view/>
   </div>
 </template>
+
+
+<script lang="ts">
+import {Component, Vue} from 'vue-property-decorator';
+import AnswerList from '@/views/AnswerList';
+@Component({
+    components: {AnswerList},
+})
+export default class App extends Vue {
+}
+</script>
+
 
 <style lang="scss">
 #app {
